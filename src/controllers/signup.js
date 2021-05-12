@@ -1,4 +1,5 @@
 const User = require("../models/user")
+const bcrypt = require("bcrypt")
 
 exports.signUp = async (req, res) => {
   const registeredUser = await User.findOne({ username: req.body.username })
@@ -11,7 +12,7 @@ exports.signUp = async (req, res) => {
       name: req.body.name,
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: bcrypt.hashSync(req.body.password, 10),
     })
     try {
       const newUser = await user.save()

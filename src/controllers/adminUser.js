@@ -1,4 +1,4 @@
-// All CRUD operations of Users from Admin Panel
+// All CRUD operations of Users [ADD,EDIT,DELETE,READ] from Admin Panel
 
 const User = require("../models/user")
 
